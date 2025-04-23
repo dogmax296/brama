@@ -1,7 +1,14 @@
+using Brama.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<BramaContext>(options =>
+    options.UseLazyLoadingProxies()
+        .UseNpgsql(builder.Configuration.GetConnectionString("mainDB"))
+);
 
 var app = builder.Build();
 
