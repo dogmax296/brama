@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Brama.Migrations
 {
-    [DbContext(typeof(BramaContext))]
+    [DbContext(typeof(AppDBContext))]
     [Migration("20250423173549_InitialCreate")]
     partial class InitialCreate
     {

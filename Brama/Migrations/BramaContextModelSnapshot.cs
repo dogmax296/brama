@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Brama.Migrations
 {
-    [DbContext(typeof(BramaContext))]
+    [DbContext(typeof(AppDBContext))]
     partial class BramaContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Brama.Models;
 
-public class BramaContext : DbContext
+public class AppDBContext : DbContext
 {
-    public BramaContext(DbContextOptions<BramaContext> options)
+    public AppDBContext(DbContextOptions<AppDBContext> options)
         : base(options)
     {
     }

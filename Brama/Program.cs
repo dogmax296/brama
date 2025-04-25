@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BramaContext>(options =>
+builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseLazyLoadingProxies()
         .UseNpgsql(builder.Configuration.GetConnectionString("mainDB"))
 );
