@@ -29,11 +29,12 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return entity;
     }
 
-    public T Delete(T entity)
+    public void Delete(Guid id)
     {
+        var entity = _dbContext.Set<T>().Find(id);
+        if (entity == null) return;
         _dbContext.Set<T>().Remove(entity);
         _dbContext.SaveChanges();
-        return entity;
     }
 
     public async Task<List<T>> Find(Expression<Func<T, bool>> predicate, FindOptions? findOptions = null)

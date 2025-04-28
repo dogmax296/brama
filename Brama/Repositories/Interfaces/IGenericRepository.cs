@@ -7,7 +7,7 @@ namespace Brama.Repositories.Interfaces;
     {
         Task <List<T>> Find(Expression<Func<T, bool>> predicate, FindOptions? findOptions = null);
         Task <T> Add(T entity);
-        T Delete(T entity);
+        void Delete(Guid id);
         T Update(T entity);
     }
     

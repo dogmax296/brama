@@ -1,4 +1,7 @@
 using Brama.Models;
+using Brama.Repositories.Implementation;
+using Brama.Repositories.Interfaces;
+using Brama.Services.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +12,18 @@ builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseLazyLoadingProxies()
         .UseNpgsql(builder.Configuration.GetConnectionString("mainDB"))
 );
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+builder.Services.AddScoped<IAccommodationRepository,AccommodationRepository>();
+builder.Services.AddScoped<IBuildingRepository,BuildingRepository>();
+builder.Services.AddScoped<IBuildingUnitRepository,BuildingUnitRepository>();
+builder.Services.AddScoped<IEntranceRepository,EntranceRepository>();
+builder.Services.AddScoped<IFloorRepository,FloorRepository>();
+builder.Services.AddScoped<IPersonRepository,PersonRepository>();
+builder.Services.AddScoped<IRoleRepository,RoleRepository>();
+builder.Services.AddScoped<IStatusRepository,StatusRepository>();
+builder.Services.AddScoped<IStatusLogRepository,StatusLogRepository>();
+builder.Services.AddScoped<IVisitRepository,VisitRepository>();
 
 var app = builder.Build();
 
