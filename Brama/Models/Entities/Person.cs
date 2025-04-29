@@ -17,8 +17,6 @@ namespace Brama.Models.Entities;
         public string? Patronic { get; set; }
         [Column("phone")]
         public string? Phone { get; set; }
-        [Column("username")]
-        public string? Username { get; set; }
         [Column("password")]
         public string? Password { get; set; }
         [Column("is_active")]
